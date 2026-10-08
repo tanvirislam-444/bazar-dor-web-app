@@ -10,16 +10,16 @@ interface Product {
   };
 }
 
-interface PriceIncreaseProps {
+interface PriceDecreaseProps {
   products: Product[];
 }
 
-const PriceIncrease = ({ products }: PriceIncreaseProps) => {
+const PriceDecrease = ({ products }: PriceDecreaseProps) => {
   return (
     <section className="mx-3 sm:mx-6 md:mx-10 lg:mx-20 mt-10">
       <div className="flex items-center gap-2 mb-5">
-        <span className="text-red-600 text-xl">▲</span>
-        <h2 className="text-2xl font-bold">আজ দাম বেড়েছে</h2>
+        <span className="text-green-600 text-xl">▼</span>
+        <h2 className="text-2xl font-bold">আজ দাম কমেছে</h2>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -55,8 +55,8 @@ const PriceIncrease = ({ products }: PriceIncreaseProps) => {
           টাকা
         </span>
       </div>
-      <div className="flex items-center gap-1 bg-red-50 px-2 rounded-2xl text-red-600 font-semibold">
-        <span>▲</span>
+      <div className="flex items-center bg-emerald-50 px-2 rounded-2xl gap-1 text-green-600 font-semibold">
+        <span>▼</span>
         <span>{product.change.pct}%</span>
       </div>
     </div>
@@ -68,4 +68,4 @@ const PriceIncrease = ({ products }: PriceIncreaseProps) => {
   );
 };
 
-export default PriceIncrease;
+export default PriceDecrease;
