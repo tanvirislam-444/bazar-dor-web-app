@@ -18,8 +18,8 @@ const Header = () => {
             <div className="mr-2 shrink-0">
               <Image
                 className="bg-[#05893E] w-10 h-10 rounded-sm"
-                height={50}
-                width={50}
+                height={500}
+                width={500}
                 src="/logo-icon.png"
                 alt="logo"
               />
@@ -30,7 +30,7 @@ const Header = () => {
                 বাজার দর
               </h1>
 
-              <p className="text-xs sm:text-sm md:text-base truncate">
+              <p className=" text-xs sm:text-sm md:text-base truncate">
                 {date}
               </p>
             </div>

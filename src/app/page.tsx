@@ -1,10 +1,11 @@
-import Marquee from "@/components/Marquee";
+import Banner from "@/components/Banner";
+
 
 
 const Home = () => {
   return (
     <div>
-      <Marquee/>
+      <Banner/>
     </div>
   );
 };
