@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface Product {
   id: number;
   nameBn: string;
@@ -24,6 +26,7 @@ const PriceIncrease = ({ products }: PriceIncreaseProps) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {products.map((product) => (
+          <Link key={product.id} href={`/details/${product.id}`}>
 <div
   key={product.id}
   className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
@@ -62,6 +65,7 @@ const PriceIncrease = ({ products }: PriceIncreaseProps) => {
     </div>
   </div>
 </div>
+</Link>
         ))}
       </div>
     </section>

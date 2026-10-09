@@ -1,3 +1,4 @@
+import Link from "next/link";
 import MarqueeText from "react-marquee-text"
 import "react-marquee-text/dist/styles.css"
 interface Product {
@@ -23,6 +24,7 @@ const Marquee = async () => {
     <div className="mt-5 py-2 border border-gray-300">
 <div className="flex gap-10">
   {data.map((h) => (
+     <Link key={h.id} href={`/details/${h.id}`}>
     <div key={h.id} className="flex items-center gap-2 whitespace-nowrap">
       <span className="text-xl">{h.image}</span>
       <span>{h.nameBn}</span>
@@ -39,6 +41,7 @@ const Marquee = async () => {
         {h.change.dir === "up" ? "▲" : "▼"} {h.change.pct}%
       </span>
     </div>
+    </Link>
   ))}
 </div>
     </div>
