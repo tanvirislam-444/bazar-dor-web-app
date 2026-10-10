@@ -18,7 +18,7 @@ interface AllProductsProps {
 
 const AllProducts = ({ products }: AllProductsProps) => {
   return (
-    <section className="mx-3 sm:mx-6 md:mx-10 lg:mx-20 mt-10">
+    <section  id="allproducts" className="mx-3 sm:mx-6 md:mx-10 lg:mx-20 mt-10">
       <h2 className="text-2xl font-bold mb-5">
         সব পণ্য
       </h2>
@@ -30,7 +30,7 @@ const AllProducts = ({ products }: AllProductsProps) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {products.map((product) => (
           <Link key={product.id} href={`/details/${product.id}`}>
-            <div className="bg-white rounded-2xl p-5 border border-gray-200 transition">
+            <div  className="bg-white rounded-2xl p-5 border border-gray-200 transition">
               <div className="flex items-center gap-3">
                 <span className="text-3xl">
                   {product.image}

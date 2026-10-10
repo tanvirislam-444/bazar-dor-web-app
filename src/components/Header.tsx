@@ -1,5 +1,7 @@
 import Image from "next/image";
 import NavLinks from "./NavLinks";
+import HeaderButton from "./HeaderButton";
+import Link from "next/link";
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -26,9 +28,9 @@ const Header = () => {
             </div>
 
             <div className="min-w-0">
-              <h1 className="font-bold text-lg sm:text-xl md:text-2xl">
+              <Link href={"/"} className="font-bold text-lg sm:text-xl md:text-2xl">
                 বাজার দর
-              </h1>
+              </Link>
 
               <p className=" text-xs sm:text-sm md:text-base truncate">
                 {date}
@@ -43,16 +45,8 @@ const Header = () => {
         </div>
 
         {/* Right section */}
-        <div className="flex gap-1 shrink-0">
-          <button className="btn bg-white border-none text-xs sm:text-sm">
-            সাইন ইন
-          </button>
 
-          <button className="btn bg-[#05893E] text-white border-none text-xs sm:text-sm">
-            সাইন আপ
-          </button>
-        </div>
-
+         <HeaderButton/>
       </div>
     </header>
   );
