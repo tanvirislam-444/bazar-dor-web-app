@@ -15,17 +15,17 @@ interface Product {
 }
 
 const Marquee = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
 
   const data: Product[] = await res.json();
 
   return (
-    <MarqueeText direction="right" duration={10} className="">
-    <div className="mt-5 py-2 border border-gray-300">
+    <MarqueeText direction="right" duration={10} className=" ">
+    <div className="mt-5 py-2 border bg-[#E1F1E7] border-gray-300">
 <div className="flex gap-10">
   {data.map((h) => (
      <Link key={h.id} href={`/details/${h.id}`}>
-    <div key={h.id} className="flex items-center gap-2 whitespace-nowrap">
+    <div key={h.id} className="flex items-center gap-2 whitespace-nowrap ">
       <span className="text-xl">{h.image}</span>
       <span>{h.nameBn}</span>
       <span>

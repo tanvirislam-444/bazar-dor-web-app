@@ -4,3 +4,72 @@
 html {
     scroll-behavior: smooth;
 }
+
+
+
+
+/* Card entrance animation */
+.not-found-enter {
+  animation: pageEnter 0.8s ease-out both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating vegetables */
+.float-slow {
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+.float-delay {
+  animation: floatUpDown 3s ease-in-out 1s infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* 404 gradient glow */
+.error-text {
+  background: linear-gradient(135deg, #046d32, #05893e, #84cc16);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glow404 2s ease-in-out infinite;
+}
+
+@keyframes glow404 {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px #05893e33);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px #05893e80);
+  }
+}
+
+/* Icon animation */
+.icon-bounce {
+  animation: bounceIcon 2s ease-in-out infinite;
+}
+
+@keyframes bounceIcon {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

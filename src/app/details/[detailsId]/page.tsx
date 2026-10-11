@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 interface Market {
   market: string;
   division: string;
@@ -35,10 +37,18 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
   const { detailsId } = await params;
 
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/bazardor/products/${detailsId}`,
+    `https://openapi.programming-hero.com/api/bazardor/products/${detailsId}`,
   );
 
+       if (!res){
+        notFound()
+      }
   const data: Product = await res.json();
+
+
+     if (!data || !data.markets?.length) {
+    notFound();
+  }
 
   const priceDifference = Math.abs(data.today - data.yesterday);
 
@@ -53,6 +63,8 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
       (total, market) => total + (market.min + market.max) / 2,
       0,
     ) / data.markets.length;
+
+   
 
   return (
     <div className="mx-3 sm:mx-6 md:mx-10 lg:mx-20 mt-10 mb-10">

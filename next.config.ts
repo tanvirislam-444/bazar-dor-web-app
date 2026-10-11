@@ -5,6 +5,16 @@ const nextConfig: NextConfig = {
   experimental: {
     agentFeedback: true,
   },
+
+  images: {
+remotePatterns: [
+{
+protocol: "https",
+hostname: "lh3.googleusercontent.com",
+pathname: "/**",
+},
+],
+},
   // cacheComponents: true,
   // partialPrefetching: true,
   reactCompiler: true,

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -6,6 +5,7 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { FiLogOut } from "react-icons/fi";
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 const HeaderButton = () => {
   const { data: session } = authClient.useSession();
@@ -14,9 +14,9 @@ const HeaderButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSignOut = async () => {
-    const { data,error } = await authClient.signOut();
-    if (data){
-      toast.success('সাইন আউট সফল হয়েছে ')
+    const { data, error } = await authClient.signOut();
+    if (data) {
+      toast.success("সাইন আউট সফল হয়েছে ");
     }
     if (!error) {
       setIsOpen(false);
@@ -33,9 +33,19 @@ const HeaderButton = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="flex items-center gap-2 rounded-full p-2 hover:bg-gray-100"
           >
-            {/* User Initial */}
-            <div className="flex h-8 w-8 items-center justify-center rounded-2xl bg-green-600 text-lg font-bold text-white">
-              {user.name?.slice(0, 1).toUpperCase() ||""}
+            {/* User Profile Image */}
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-green-600 text-lg font-bold text-white">
+              {user.image ? (
+                <Image
+                  height={20}
+                  width={20}
+                  src={user.image}
+                  alt={user.name || "Profile"}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                user.name?.slice(0, 1).toUpperCase() || ""
+              )}
             </div>
 
             {/* User Name */}
@@ -52,9 +62,7 @@ const HeaderButton = () => {
             <div className="absolute right-0 top-full z-50 mt-2 w-72 max-w-[calc(100vw-2rem)] rounded-xl border border-gray-200 bg-white p-2 shadow-xl">
               {/* User Information */}
               <div className="border-b border-gray-200 px-3 py-3">
-                <p className="font-semibold text-gray-900">
-                  {user.name}
-                </p>
+                <p className="font-semibold text-gray-900">{user.name}</p>
 
                 <p className="mt-1 break-all text-sm text-gray-500">
                   {user.email}
@@ -77,7 +85,7 @@ const HeaderButton = () => {
                 onClick={handleSignOut}
                 className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-red-600 hover:bg-red-50"
               >
-                 <FiLogOut size={20} className="text-red-600" />
+                <FiLogOut size={20} className="text-red-600" />
                 <span>সাইন আউট</span>
               </button>
             </div>
@@ -106,4 +114,3 @@ const HeaderButton = () => {
 };
 
 export default HeaderButton;
-

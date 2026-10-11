@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 interface Product {
   id: number;
   nameBn: string;
@@ -30,7 +29,7 @@ const AllProducts = ({ products }: AllProductsProps) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {products.map((product) => (
           <Link key={product.id} href={`/details/${product.id}`}>
-            <div  className="bg-white rounded-2xl p-5 border border-gray-200 transition">
+            <div  className="bg-[#F0F5F0] rounded-2xl p-5 border border-gray-200 transition hover:border-green-600 hover:border-2">
               <div className="flex items-center gap-3">
                 <span className="text-3xl">
                   {product.image}

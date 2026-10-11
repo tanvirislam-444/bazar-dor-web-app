@@ -69,9 +69,9 @@ const SignInPage = () => {
             বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
           </p>
         </div>
-        <div className="flex justify-center">
-          <form onSubmit={onSubmit} className="w-full max-w-lg">
-            <fieldset className="fieldset bg-base-200 border-base-300 rounded-2xl border p-5 sm:p-8 md:p-10">
+        <div className="flex justify-center ">
+          <form onSubmit={onSubmit} className="w-full  max-w-lg">
+            <fieldset className="fieldset bg-[#F0F5F0] border-base-300 rounded-2xl border p-5 sm:p-8 md:p-10">
 
               {/* Email */}
               <label className="font-semibold mt-3">ইমেইল</label>

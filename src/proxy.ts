@@ -8,7 +8,6 @@ const session = await auth.api.getSession({
     headers: await headers()
 })
 const user = session?.user
-console.log(user)
 if(!user){
   return NextResponse.redirect(new URL('/signup', request.url))
 }
@@ -17,5 +16,5 @@ if(!user){
  
 
 export const config = {
-  matcher: ['/details/:path*'],
+  matcher: ['/details/:path*','/profile'],
 }

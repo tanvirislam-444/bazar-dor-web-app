@@ -13,6 +13,7 @@ const SignUpPage = () => {
     const user = Object.fromEntries(formData.entries()) as {
       name: string;
       email: string;
+      image:string;
       password: string;
     };
 
@@ -42,16 +43,15 @@ const SignUpPage = () => {
   };
 
   const handleGithubSignIn = async () => {
-    const {data,error} = await authClient.signIn.social({
+    const { data, error } = await authClient.signIn.social({
       provider: "github",
     });
-       if (data) {
+    if (data) {
       toast.success("সফলভাবে সাইন ইন হয়েছে");
     }
     if (error) {
       toast.error("সাইন ইন ব্যর্থ হয়েছে অনুগ্রহ করে আবার চেষ্টা করুন");
     }
-
   };
 
   return (
@@ -67,7 +67,7 @@ const SignUpPage = () => {
       </div>
       <div className="flex justify-center">
         <form onSubmit={onSubmit} className="w-full max-w-lg">
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-2xl border p-5 sm:p-8 md:p-10">
+          <fieldset className="fieldset bg-[#F0F5F0] border-base-300 rounded-2xl border p-5 sm:p-8 md:p-10">
             {/* Name */}
             <label className="font-semibold">নাম</label>
             <input
@@ -87,6 +87,15 @@ const SignUpPage = () => {
               placeholder="আপনার ইমেইল লিখুন "
               required
             />
+            {/* Profile Image URL */}
+          <label className="font-semibold mt-3">প্রোফাইল ছবির URL</label>
+
+            <input
+              type="url"
+              name="image"
+              className="input w-full"
+              placeholder="আপনার প্রোফাইল ছবির URL দিন"
+            />
 
             {/* Password */}
             <label className="font-semibold mt-3">পাসওয়ার্ড</label>
@@ -99,18 +108,9 @@ const SignUpPage = () => {
               required
             />
 
-            {/* Confirm Password */}
-            <label className="font-semibold mt-3">
-              পাসওয়ার্ড নিশ্চিত করুন
-            </label>
-            <input
-              type="password"
-              name="confirmPassword"
-              className="input w-full"
-              placeholder="পাসওয়ার্ড আবার লিখে নিশ্চিত করুন"
-              minLength={8}
-              required
-            />
+      
+
+
 
             {/* Submit */}
             <button

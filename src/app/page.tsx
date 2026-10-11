@@ -1,3 +1,4 @@
+
 import AllProducts from "@/components/AllProducts";
 import Banner from "@/components/Banner";
 import PriceDecrease from "@/components/PriceDecrease";
@@ -15,7 +16,7 @@ interface Product {
 }
 
 const Home = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
 
   const data:Product[] = await res.json();
 

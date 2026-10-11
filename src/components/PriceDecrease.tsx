@@ -29,7 +29,7 @@ const PriceDecrease = ({ products }: PriceDecreaseProps) => {
           <Link key={product.id} href={`/details/${product.id}`}>
 <div
   key={product.id}
-  className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+  className="bg-[#F0F5F0] rounded-2xl p-5 shadow-sm border border-gray-100 hover:border-green-600 hover:border-2">
   <div className="flex items-center gap-3">
     <span className="text-3xl">{product.image}</span>
 
